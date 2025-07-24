@@ -7,13 +7,13 @@ import morgan from "morgan";
 import { fileURLToPath } from "url";
 import { engine } from 'express-handlebars'
 //import { dbConnection } from "../database/config.db.js";
-//import  job  from '../helpers/cron.js'
+import  job  from '../helpers/cron.js'
 
 class Server {
   constructor() {
     this.app = express();
     this.__dirname = dirname(fileURLToPath(import.meta.url));
-    //this.job = job
+    this.job = job
     this.app.set("port", process.env.PORT || 4000);
     this.app.set('views', join(this.__dirname, '../views'))
     this.app.engine('.hbs', engine({
@@ -31,7 +31,7 @@ class Server {
    // this.dbCnn();
     this.midlewares();
     this.routes();
-    //this.job.start()
+    this.job.start()
   }
 /*
   async dbCnn() {
